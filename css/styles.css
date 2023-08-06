@@ -2,3 +2,16 @@
     object-fit: cover;
     height: 350px;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+main{
+    background: #f2eeee;
+}
+
+aside{
+    border-radius: 5px;
+}
