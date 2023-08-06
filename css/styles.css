@@ -1,4 +1,4 @@
-.carousel-item, img{
+.carruselImg{
     object-fit: cover;
     height: 350px;
 }
@@ -14,4 +14,15 @@ main{
 
 aside{
     border-radius: 5px;
+}
+
+.error404{
+    background: rgb(8,28,34);
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+
+.error404img{
+    width: 50%;
 }
