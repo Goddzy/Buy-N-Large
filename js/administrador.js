@@ -63,10 +63,10 @@ function crearFila(producto){
     </td>
     <td>
         <ul>
-            <button class="btn btn-danger my-1" type="button">
+            <button class="btn btn-danger my-1" type="button" onclick="borrarProducto('${producto.codigo}')">
                 <i class="fa-solid fa-eraser"></i>
             </button>
-            <button class="btn btn-warning my-1" type="button">
+            <button class="btn btn-warning my-1" type="button" onclick="editarProducto('{${producto.codigo}}')">
                 <i class="fa-regular fa-pen-to-square"></i>
             </button>
         </ul>
@@ -74,10 +74,19 @@ function crearFila(producto){
 </tr>`
 }
 
+window.borrarProducto = function(codigoEncontrado){
+    let listaProductosSalvados = listaProductos.filter((producto)=> producto.codigo != codigoEncontrado);
+    listaProductos = listaProductosSalvados;
+    guardarProductosEnLocalStorage();
+    tablaBody.innerHTML = '';
+    cargarProductos();
+}
+
 
 function resetearFormulario(){
     formulario.reset();
     reiniciarForm();
+    codigo.value = uuidv4();
 }
 
 function reiniciarForm(){
