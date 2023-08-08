@@ -59,11 +59,11 @@ function verificarImagen(input) {
 
 function verificarDescripcion(input){
     if(input.value.length >=15 && input.value.length <=400){
-        descripcion.className = 'form-control is-invalid'
-        return false
+        descripcion.className = 'form-control is-valid';
+        return true;
     }else {
-        descripcion.className = 'form-control is-valid'
-        return true
+        descripcion.className = 'form-control is-invalid';
+        return false;
     }
 }
 
