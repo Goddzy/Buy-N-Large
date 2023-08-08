@@ -138,12 +138,12 @@
                                 <input type="text" class="form-control" id="codigo" required disabled>
                             </div>
                             <div class="pb-3">
-                                <label for="Nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="Nombre" placeholder="Teléfono Galaxy A04e">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Teléfono Galaxy A04e" minlength="2" maxlength="30">
                             </div>
                             <div class="pb-3">
                                 <label for="precio" class="form-label">Precio</label>
-                                <input type="text" class="form-control" id="precio" placeholder="$60.000">
+                                <input type="text" class="form-control" id="precio" placeholder="$60.000" minlength="2" maxlength="12">
                             </div>
                             <div class="pb-3">
                                 <label for="categoria" class="form-label">Categoría</label>
@@ -158,8 +158,8 @@
                                 </select>
                             </div>
                             <div class="pb-3">
-                                <label for="Imagen" class="form-label">Imagen</label>
-                                <input type="text" id="Imagen" class="form-control" required placeholder="https://imgs.search.brave.com/OYVFPn_nTTpGEKD8DEUPDZx-QCS1dnUSOfkpPbb6_d8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jb25j/ZXB0by5kZS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8xMi9p/bWFnZW4tZTE2MDc5/OTE3ODE0ODUuanBn">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input type="text" id="imagen" class="form-control" required placeholder="https://imgs.search.brave.com/OYVFPn_nTTpGEKD8DEUPDZx-QCS1dnUSOfkpPbb6_d8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jb25j/ZXB0by5kZS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8xMi9p/bWFnZW4tZTE2MDc5/OTE3ODE0ODUuanBn" minlength="15" maxlength="400">
                             </div>
                             <div class="mb-3">
                                 <label for="descripcion" class="form-label"
@@ -178,12 +178,8 @@
                                 <label for="stock" class="form-label">Cantidad en stock</label>
                                 <input type="text" id="stock" class="form-control" required placeholder="50" maxlength="5"> 
                             </div>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" class="btn btn-warning">Enviar</button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
                     </div>
                 </div>
             </div>
@@ -207,8 +203,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="https://kit.fontawesome.com/4be1b3b300.js" crossorigin="anonymous"></script>
-    <script src="../js/administrador.js"></script>
+    <script src="../js/administrador.js" type="module"></script>
+    <script src="../js/helperModalProducto.js"></script>
 </body>
-
 </html>
