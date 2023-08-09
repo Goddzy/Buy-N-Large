@@ -143,7 +143,7 @@ function actualizarProducto(){
     tablaBody.innerHTML = '';
     cargarProductos();
     modalProductos.hide();
-    Swal.fire("Editada", "La película ha sido editada.", "success");
+    Swal.fire("Editado", "El producto ha sido editado.", "success");
 }
 
 function resetearFormulario() {

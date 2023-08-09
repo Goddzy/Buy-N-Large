@@ -51,7 +51,7 @@
                   ><i class="fa-solid fa-cart-shopping"></i> Tus compras</a
                 >
               </li>
-              <li class="nav-item d-none" id="administradorHeader">
+              <li class="nav-item d-none" id="administrador">
                 <a class="nav-link" href="pages/administrador.html">Administrador</a>
               </li>
             </ul>
@@ -64,12 +64,12 @@
     <main class="pb-5">
       <h1 class="text-center pt-5"><i>Iniciar sesión</i></h1>
       <hr class="container" />
-      <form class="container text-center pb-5 pt-3">
+      <form class="container text-center pb-5 pt-3" id="usuarioLogear">
         <div class="pb-3">
           <input
             class="form-control text-center"
             type="text"
-            id="email"
+            id="emailLogear"
             placeholder="Email"
             maxlength="60"
             minlength="10"
@@ -80,7 +80,7 @@
           <input
             class="form-control text-center"
             type="password"
-            id="contrasenia"
+            id="contraseniaLogear"
             placeholder="Contraseña"
             maxlength="50"
             minlength="6"
@@ -89,7 +89,6 @@
         </div>
         <div>
         <button class="btn btn-primary container" type="submit" id="btnEnviar">Enviar</button>
-          <button class="btn btn-warning container mt-3 d-none" type="submit" id="btnAdministrador">Iniciar sesión como administrador</button>
         </div>
       </form>
     </main>
@@ -119,6 +118,8 @@
       src="https://kit.fontawesome.com/4be1b3b300.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/helper.js"></script>
+    <script src="../js/helperLogear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/usuarioLogeado.js"></script>
   </body>
 </html>

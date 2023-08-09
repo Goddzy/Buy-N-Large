@@ -1,16 +1,59 @@
-import { Usuarios } from "./classUsuario";
-let crearCuenta = document.getElementById('crearCuenta');
-let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuariosCreadosKey')) || [];
+let formulario = document.getElementById("crearCuenta");
+let listaUsuarios =
+  JSON.parse(localStorage.getItem("listaUsuariosCreadosKey")) || [];
+let nombreUsuario = document.getElementById("nombre");
+let apellidoUsuario = document.getElementById("apellido");
+let emailUsuario = document.getElementById("email");
+let contraseniaUsuario = document.getElementById("contrasenia");
+formulario.addEventListener("submit", crearCuentaUsuario);
 
-crearCuenta.addEventListenert('submit', crearCuenta);
-
-// function crearCuenta(e){
-//   e.preventDefault();
+function crearCuentaUsuario(e) {
+  e.preventDefault();
   //crear mi class usuario
-  //acá va a crear el usuario con los datos del formulario
-  //chequear que el email no exista en el localstorage
-  //si existe, muestro cartel de que ya existe
-  //si no existe, pusheo el usuario en listaUsuarios, hago el local storage
-  // localStorage.setItem("listaUsuariosCreadosKey", JSON.stringify(listaUsuarios));
-  //redireccionar al inicio|
-// }
+  let UsuarioFiltrado = listaUsuarios.filter((usuario) => {
+    return usuario.email === emailUsuario.value;
+  });
+  if (UsuarioFiltrado.length > 0) {
+    alert("el usuario ya existe");
+  } else {
+    let nuevaCuenta = {
+      nombre: nombreUsuario.value,
+      apellido: apellidoUsuario.value,
+      email: emailUsuario.value,
+      contrasenia: contraseniaUsuario.value,
+      administrador: false
+    };
+    listaUsuarios.push(nuevaCuenta);
+    localStorage.setItem(
+      "listaUsuariosCreadosKey",
+      JSON.stringify(listaUsuarios)
+    );
+    resetearFormulario();
+    Swal.fire({
+      title: "Creada",
+      text: "Su cuenta ha sido creada exitosamente.",
+      icon: "success",
+      showCancelButton: false,
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = window.location.origin + "/index.html";
+      }
+    });
+    }
+  
+  }
+
+function resetearFormulario() {
+    formulario.reset();
+    reiniciarForm();
+}
+function reiniciarForm() {
+    let validaciones = document.getElementsByClassName("form-control");
+    const campoValidaciones = Array.from(validaciones);
+    campoValidaciones.forEach((validaciones) => {
+      validaciones.className = "form-control text-center";
+    });
+}
+  
