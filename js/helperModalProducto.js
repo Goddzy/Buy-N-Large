@@ -47,7 +47,7 @@ function verificarCategoria(input) {
 }
 
 function verificarImagen(input) {
-    let patron = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$/;
+    let patron = /^(https?:\/\/)/
     if (patron.test(input.value) && input.value.length >= 20) {
         input.className = "form-control is-valid";
         return true;
@@ -58,7 +58,7 @@ function verificarImagen(input) {
 }
 
 function verificarDescripcion(input){
-    if(input.value.length >=15 && input.value.length <=400){
+    if(input.value.length >=15 && input.value.length <=700){
         descripcion.className = 'form-control is-valid';
         return true;
     }else {

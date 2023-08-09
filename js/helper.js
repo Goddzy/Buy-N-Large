@@ -1,22 +1,21 @@
+let nombre = document.getElementById("nombre");
+let apellido = document.getElementById("apellido");
 let email = document.getElementById("email");
 let contrasenia = document.getElementById("contrasenia");
-let btnEnviar = document.getElementById('btnEnviar');
-let btnAdministrador = document.getElementById("btnAdministrador");
+let btnEnviar = document.getElementById("btnEnviar");
 
 email.addEventListener("blur", () => {
   verificarEmail(email);
 });
-email.addEventListener("blur", () => {
-  verificarAdmin(email);
-});
 contrasenia.addEventListener("blur", () => {
   verificarContrasenia(contrasenia);
 });
-
-btnEnviar.addEventListener("submit", error404);
-function error404(e){
-    e.preventDefault();
-}
+nombre.addEventListener("blur", () => {
+  verificarNombre(nombre);
+});
+apellido.addEventListener("blur", () => {
+  verificarApellido(apellido);
+});
 
 function verificarEmail(input) {
   let patron =
@@ -44,10 +43,22 @@ function verificarContrasenia(input) {
   }
 }
 
-function verificarAdmin(input) {
-  if (input.value === "renatotrevisiolmontiel@gmail.com") {
-    btnAdministrador.className = "btn btn-warning container mt-3";
-  }else{
-    btnAdministrador.className= "btn btn-warning container mt-3 d-none";    
+function verificarNombre(input) {
+  if (input.value.length >= 3 && input.value.length <= 50) {
+    nombre.className = "form-control is-valid text-center";
+    return true;
+  } else {
+    nombre.className = "form-control is-invalid text-center";
+    return false;
+  }
+}
+
+function verificarApellido(input) {
+  if (input.value.length >= 2 && input.value.length <= 50) {
+    apellido.className = "form-control is-valid text-center";
+    return true;
+  } else {
+    apellido.className = "form-control is-invalid text-center";
+    return false;
   }
 }

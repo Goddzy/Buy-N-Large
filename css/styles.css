@@ -26,3 +26,15 @@ aside{
 .error404img{
     width: 50%;
 }
+
+.circulo{
+    object-fit: cover;
+    height: 350px;
+    border-radius: 50%;
+    border: 3px solid  yellow;
+}
+
+.imagenProductos{
+    object-fit: cover;
+    height: 300px;
+}

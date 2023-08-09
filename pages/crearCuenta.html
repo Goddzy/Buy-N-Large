@@ -62,9 +62,31 @@
       </nav>
     </header>
     <main class="pb-5">
-      <h1 class="text-center pt-5"><i>Iniciar sesión</i></h1>
+      <h1 class="text-center pt-5"><i>Crear una cuenta</i></h1>
       <hr class="container" />
-      <form class="container text-center pb-5 pt-3">
+      <form class="container text-center pb-5 pt-3" id="crearCuenta">
+        <div class="pb-3">
+          <input
+            class="form-control text-center"
+            type="text"
+            id="nombre"
+            placeholder="Nombre"
+            maxlength="60"
+            minlength="10"
+            required
+          />
+        </div>
+        <div class="pb-3">
+          <input
+            class="form-control text-center"
+            type="text"
+            id="apellido"
+            placeholder="Apellido"
+            maxlength="60"
+            minlength="2"
+            required
+          />
+        </div>
         <div class="pb-3">
           <input
             class="form-control text-center"
@@ -72,7 +94,7 @@
             id="email"
             placeholder="Email"
             maxlength="60"
-            minlength="10"
+            minlength="2"
             required
           />
         </div>
@@ -89,7 +111,6 @@
         </div>
         <div>
         <button class="btn btn-primary container" type="submit" id="btnEnviar">Enviar</button>
-          <button class="btn btn-warning container mt-3 d-none" type="submit" id="btnAdministrador">Iniciar sesión como administrador</button>
         </div>
       </form>
     </main>
@@ -119,6 +140,7 @@
       src="https://kit.fontawesome.com/4be1b3b300.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/crearCuenta.js" type="module"></script>
     <script src="../js/helper.js"></script>
   </body>
 </html>
