@@ -36,7 +36,6 @@ let buscador = document.getElementById('buscador');
 buscador.addEventListener('change', buscarProducto);
 
 function buscarProducto(){
-  console.log(buscador.value);
   if(buscador.value === ''){
     grilla.innerHTML = '';
     listaProductos = JSON.parse(localStorage.getItem('listaProductosKey')) || [];

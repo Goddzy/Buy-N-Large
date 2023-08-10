@@ -1,6 +1,7 @@
 let formulario = document.getElementById('usuarioLogear');
 let emailLogear = document.getElementById('emailLogear');
 let contraseniaLogear = document.getElementById('contraseniaLogear');
+let btnCerrarSesion = document.getElementById('cerrarSesion');
 usuarioLogear.addEventListener('submit' , logearUsuario);
 let listaUsuariosLogeados = JSON.parse(localStorage.getItem('listaUsuariosLogeadosKey')) || [];
 let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuariosCreadosKey")) || [];
@@ -14,7 +15,6 @@ function logearUsuario(e){
     }
     listaUsuarios.push(usuarioLogeado);
     localStorage.setItem("listaUsuariosLogeadosKey",JSON.stringify(listaUsuarios));
-    console.log(listaUsuariosLogeados)
     resetearFormulario();
     Swal.fire({
       title: "Datos correctos",

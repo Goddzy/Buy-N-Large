@@ -91,7 +91,7 @@ function crearFila(producto) {
 
 window.borrarProducto = function (codigoEncontrado) {
   Swal.fire({
-    title: "Quiere borrar la película?",
+    title: "Quiere borrar el producto?",
     text: "No se podrán restaurar los datos",
     icon: "warning",
     showCancelButton: true,
@@ -104,12 +104,11 @@ window.borrarProducto = function (codigoEncontrado) {
       let listaProductosSalvados = listaProductos.filter(
         (producto) => producto.codigo != codigoEncontrado
       );
-      console.log(listaProductosSalvados);
       listaProductos = listaProductosSalvados;
       guardarProductosEnLocalStorage();
       tablaBody.innerHTML = "";
       cargarProductos();
-      Swal.fire("Eliminada", "La película ha sido removida.", "success");
+      Swal.fire("Eliminado", "El producto ha sido removido.", "success");
     }
   });
 };
