@@ -38,23 +38,26 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="index.html"
+                  id="inicio"
                   >Inicio</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="iniciarSesion">
                 <a
                   class="nav-link"
                   href="pages/iniciarSesion.html"
-                  id="iniciarSesion"
                   >Iniciar sesión</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="crearUnaCuenta">
                 <a
                   class="nav-link"
                   href="pages/crearCuenta.html"
-                  id="crearUnaCuenta"
+                  
                   >Crear una cuenta</a
                 >
               </li>
@@ -63,8 +66,8 @@
                   ><i class="fa-solid fa-cart-shopping"></i> Tus compras</a
                 >
               </li>
-              <li class="nav-item" id="administrador">
-                <a class="nav-link" href="pages/administrador.html"
+              <li class="nav-item d-none" id="administrador">
+                <a class="nav-link" href="pages/administrador.html" 
                   >Administrador</a
                 >
               </li>
@@ -79,11 +82,9 @@
               />
             </div>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <i class="fa-regular fa-user fs-5 ms-3 mt-2" id="usuario"></i>
-              </li>
-              <li class="nav-item" id="cerrarSesion">
-                <a class="nav-link" href="#" type="submit">Cerrar sesión</a>
+
+              <li class="nav-item d-none" id="cerrarSesion">
+                <button class="nav-link" type="submit">Cerrar sesión</button>
               </li>
             </ul>
           </div>
@@ -195,5 +196,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/paginaPrincipal.js"></script>
+    <script src="js/botonesHeader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

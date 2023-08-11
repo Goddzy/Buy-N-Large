@@ -14,7 +14,7 @@ function crearCuentaUsuario(e) {
     return usuario.email === emailUsuario.value;
   });
   if (UsuarioFiltrado.length > 0) {
-    alert("el usuario ya existe");
+    Swal.fire("Email ya ingresado", "Esta cuenta ya existe, por favor, ingrese sesión.", "error");
   } else {
     let nuevaCuenta = {
       nombre: nombreUsuario.value,
@@ -56,4 +56,3 @@ function reiniciarForm() {
       validaciones.className = "form-control text-center";
     });
 }
-  

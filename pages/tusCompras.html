@@ -42,16 +42,17 @@
                   class="nav-link active"
                   aria-current="page"
                   href="../index.html"
+                  id="inicio"
                   >Inicio</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="iniciarSesion.html" id="iniciarSesion"
+              <li class="nav-item" id="iniciarSesion">
+                <a class="nav-link" href="iniciarSesion.html" 
                   >Iniciar sesión</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="crearCuenta.html" id="crearUnaCuenta"
+              <li class="nav-item" id="crearUnaCuenta">
+                <a class="nav-link" href="crearCuenta.html" 
                   >Crear una cuenta</a
                 >
               </li>
@@ -60,8 +61,8 @@
                   ><i class="fa-solid fa-cart-shopping"></i> Tus compras</a
                 >
               </li>
-              <li class="nav-item" id="administrador">
-                <a class="nav-link" href="administrador.html">Administrador</a>
+              <li class="nav-item d-none" id="administrador">
+                <a class="nav-link" href="administrador.html" >Administrador</a>
               </li>
             </ul>
             <div class="d-flex" role="search">
@@ -74,11 +75,9 @@
               />
             </div>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <i class="fa-regular fa-user fs-5 ms-3 mt-2" id="usuario"></i>
-              </li>
-              <li class="nav-item" id="cerrarSesion">
-                <a class="nav-link" href="#" type="submit">Cerrar sesión</a>
+
+              <li class="nav-item d-none" id="cerrarSesion">
+                <button class="nav-link" type="submit">Cerrar sesión</button>
               </li>
             </ul>
           </div>
@@ -90,28 +89,6 @@
       <section class="container">
         
           <article class="row" id="carritoCompras">
-            <!-- <aside class="col-12 col-md-2 mb-4">
-              <img
-                src="https://imgs.search.brave.com/ztIG98Tw5aCPRdQ6MXK13fLgWLL5wrAGPuXRfjS0ZZ4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kZWZp/bmljaW9uLmRlL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDA5LzA5/L2ZvdG9ncmFmaWEu/anBn"
-                alt="producto.nombre"
-                class="w-100"
-              />
-            </aside>
-            <aside class="col-12 col-md-6">
-              <h2>Titulo Lorem ipsum dolor sit amet.</h2>
-              <p>
-                Descripcion Lorem ipsum dolor sit amet consectetur adipisicing
-                elit.
-              </p>
-            </aside>
-            <aside class="col-6 col-md-2 mb-4">
-              <span class="badge bg-dark fs-5">$39.000</span>
-            </aside>
-            <aside class="col-6 col-md-2 mb-4">
-              <button class="btn btn-danger">
-                <i class="fa-solid fa-eraser"></i>
-              </button>
-            </aside> -->
           </article>
       </section>
     </main>
@@ -143,5 +120,6 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/dibujarCarrito.js"></script>
+    <script src="../js/botonesHeader.js"></script>
   </body>
 </html>

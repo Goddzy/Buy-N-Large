@@ -1,8 +1,13 @@
+let iniciarSesion = document.getElementById('iniciarSesion');
+let crearUnaCuenta = document.getElementById('crearUnaCuenta');
+let administrador = document.getElementById('administrador');
+let cerrarSesion = document.getElementById('cerrarSesion');
 let formulario = document.getElementById('usuarioLogear');
 let emailLogear = document.getElementById('emailLogear');
 let contraseniaLogear = document.getElementById('contraseniaLogear');
-let btnCerrarSesion = document.getElementById('cerrarSesion');
-usuarioLogear.addEventListener('submit' , logearUsuario);
+
+
+formulario.addEventListener('submit' , logearUsuario);
 let listaUsuariosLogeados = JSON.parse(localStorage.getItem('listaUsuariosLogeadosKey')) || [];
 let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuariosCreadosKey")) || [];
 function logearUsuario(e){
@@ -11,11 +16,13 @@ function logearUsuario(e){
   if(emailLogear.value === usuarioEncontrado.email && contraseniaLogear.value === usuarioEncontrado.contrasenia){
     let usuarioLogeado = {
       email: emailLogear.value,
-      contrasenia: contraseniaLogear.value 
+      contrasenia: contraseniaLogear.value,
+      administrador: usuarioEncontrado.administrador
     }
-    listaUsuarios.push(usuarioLogeado);
-    localStorage.setItem("listaUsuariosLogeadosKey",JSON.stringify(listaUsuarios));
+    listaUsuariosLogeados.push(usuarioLogeado);
+    localStorage.setItem("listaUsuariosLogeadosKey",JSON.stringify(listaUsuariosLogeados)); 
     resetearFormulario();
+    chequearUsuario();
     Swal.fire({
       title: "Datos correctos",
       text: "Ha iniciado sesión correctamente.",
@@ -26,13 +33,13 @@ function logearUsuario(e){
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = window.location.origin + "/index.html";
+
       }
     });
   }else{
     Swal.fire("Datos incorrectos", "Verifique si la contraseña o el email coinciden.", "error");
   }
 }
-
 
 function resetearFormulario() {
   formulario.reset();
@@ -45,3 +52,31 @@ function reiniciarForm() {
     validaciones.className = "form-control text-center";
   });
 }
+
+cerrarSesion.addEventListener('click' , borrarUsuario);
+
+function borrarUsuario(){
+  localStorage.removeItem('listaUsuariosLogeadosKey');
+  chequearUsuario();
+  Swal.fire("Cerrado de sesión", "Se cerró la sesión.", "success");
+}
+
+function chequearUsuario(){
+  let usuario = JSON.parse(localStorage.getItem('listaUsuariosLogeadosKey'));
+  if(usuario){
+    iniciarSesion.className = 'nav-item d-none'
+    crearUnaCuenta.className = 'nav-item d-none'
+    cerrarSesion.className = 'nav-item'
+    if(usuario[0].administrador){
+      administrador.className = 'nav-item'
+    }else{
+      administrador.className = 'nav-item d-none'
+    }
+  }else{
+    iniciarSesion.className = 'nav-item'
+    crearUnaCuenta.className = 'nav-item'
+    cerrarSesion.className = 'nav-item d-none'
+    administrador.className = 'nav-item d-none'
+  }
+}
+chequearUsuario();

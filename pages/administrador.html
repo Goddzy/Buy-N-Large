@@ -1,171 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Renato Trevisiol Montiel" />
     <meta name="description" content="página para comprar productos online" />
     <meta name="keywords" content="ecommerce, comprar online, comprar" />
     <title>Buy N' Large</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../css/styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-warning">
-            <div class="container">
-                <a class="navbar-brand" href="../index.html">
-                    <i class="fa-brands fa-buy-n-large display-6"></i>
-                    <h5>Buy N' Large</h5>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="iniciarSesion.html">Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="crearCuenta.html">Crear una cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tusCompras.html"><i class="fa-solid fa-cart-shopping"></i> Tus compras</a>
-                        </li>
-                        <li class="nav-item d-none" id="administrador">
-                            <a class="nav-link" href="pages/administrador.html">Administrador</a>
-                        </li>
-                    </ul>
-                    </form>
-                </div>
+      <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <i class="fa-brands fa-buy-n-large display-6"></i>
+            <h5>Buy N' Large</h5>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../index.html"
+                  id="inicio"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item" id="iniciarSesion">
+                <a class="nav-link" href="iniciarSesion.html">Iniciar sesión</a>
+              </li>
+              <li class="nav-item" id="crearUnaCuenta">
+                <a class="nav-link" href="crearCuenta.html">Crear una cuenta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="TusCompras.html"
+                  ><i class="fa-solid fa-cart-shopping"></i> Tus compras</a
+                >
+              </li>
+              <li class="nav-item d-none" id="administrador">
+                <a class="nav-link" href="administrador.html">Administrador</a>
+              </li>
+            </ul>
+            <div class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Buscar"
+                aria-label="Search"
+                id="buscador"
+              />
             </div>
-        </nav>
+            <ul class="navbar-nav">
+              <li class="nav-item d-none" id="cerrarSesion">
+                <button class="nav-link" type="submit">Cerrar sesión</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-        <h1 class="text-center pt-5 bt-3"><i>Administra los productos aquí</i></h1>
-        <hr>
-        <section class="container">
-            <p class="fs-4">
+      <h1 class="text-center pt-5 bt-3">
+        <i>Administra los productos aquí</i>
+      </h1>
+      <hr />
+      <section class="container">
+        <p class="fs-4">
+          Agregar un producto
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            id="btnAgregarProducto"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </p>
+      </section>
+      <section class="container table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Cantidad en Stock</th>
+              <th scope="col">Borrar/editar</th>
+            </tr>
+          </thead>
+          <tbody id="tablaBody"></tbody>
+        </table>
+      </section>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="ventanaModal"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
                 Agregar un producto
-                <button class="btn btn-outline-primary" type="button" id="btnAgregarProducto">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </p>
-        </section>
-        <section class="container table-responsive">
-
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Cantidad en Stock</th>
-                        <th scope="col">Borrar/editar</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaBody">
- 
-                </tbody>
-            </table>
-        </section>
-        <!-- Modal -->
-        <div class="modal fade" id="ventanaModal" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar un producto</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="formularioProducto">
-                            <div class="pb-3">
-                                <label for="codigo" class="form-label">Código</label>
-                                <input type="text" class="form-control" id="codigo" required disabled>
-                            </div>
-                            <div class="pb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Teléfono Galaxy A04e" minlength="2" maxlength="30">
-                            </div>
-                            <div class="pb-3">
-                                <label for="precio" class="form-label">Precio</label>
-                                <input type="text" class="form-control" id="precio" placeholder="$60.000" minlength="2" maxlength="12">
-                            </div>
-                            <div class="pb-3">
-                                <label for="categoria" class="form-label">Categoría</label>
-                                <select class="form-control" id="categoria" required>
-                                  <option value="">Seleccione una opción</option>
-                                  <option value="ropa">Ropa</option>
-                                  <option value="libros">Libros</option>
-                                  <option value="electronica">Electrónica</option>
-                                  <option value="musica">Música</option>
-                                  <option value="ornamentacion">Ornamentación</option>
-                                  <option value="deporte">Deporte</option>
-                                </select>
-                            </div>
-                            <div class="pb-3">
-                                <label for="imagen" class="form-label">Imagen</label>
-                                <input type="text" id="imagen" class="form-control" required placeholder="https://imgs.search.brave.com/OYVFPn_nTTpGEKD8DEUPDZx-QCS1dnUSOfkpPbb6_d8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jb25j/ZXB0by5kZS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8xMi9p/bWFnZW4tZTE2MDc5/OTE3ODE0ODUuanBn" minlength="15" maxlength="400">
-                            </div>
-                            <div class="mb-3">
-                                <label for="descripcion" class="form-label"
-                                  >Descripción</label
-                                >
-                                <textarea
-                                  id="descripcion"
-                                  rows="3"
-                                  class="form-control"
-                                  minlength="5"
-                                  maxlength="700"
-                                  required
-                                placeholder="Este teléfono se trata de uno con gama media y excelentes características. Viene con una pantalla HD+ de 6.5 pulgadas y una cámara de 13MP + 2MP para capturar imágenes nítidas."></textarea>
-                              </div>
-                              <div class="pb-3">
-                                <label for="stock" class="form-label">Cantidad en stock</label>
-                                <input type="text" id="stock" class="form-control" required placeholder="50" maxlength="5"> 
-                            </div>
-                            <button type="submit" class="btn btn-warning">Enviar</button>
-                        </form>
-                    </div>
-                </div>
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
+            <div class="modal-body">
+              <form id="formularioProducto">
+                <div class="pb-3">
+                  <label for="codigo" class="form-label">Código</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="codigo"
+                    required
+                    disabled
+                  />
+                </div>
+                <div class="pb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    placeholder="Teléfono Galaxy A04e"
+                    minlength="2"
+                    maxlength="30"
+                  />
+                </div>
+                <div class="pb-3">
+                  <label for="precio" class="form-label">Precio</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="precio"
+                    placeholder="$60.000"
+                    minlength="2"
+                    maxlength="12"
+                  />
+                </div>
+                <div class="pb-3">
+                  <label for="categoria" class="form-label">Categoría</label>
+                  <select class="form-control" id="categoria" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="ropa">Ropa</option>
+                    <option value="libros">Libros</option>
+                    <option value="electronica">Electrónica</option>
+                    <option value="musica">Música</option>
+                    <option value="ornamentacion">Ornamentación</option>
+                    <option value="deporte">Deporte</option>
+                  </select>
+                </div>
+                <div class="pb-3">
+                  <label for="imagen" class="form-label">Imagen</label>
+                  <input
+                    type="text"
+                    id="imagen"
+                    class="form-control"
+                    required
+                    placeholder="https://imgs.search.brave.com/OYVFPn_nTTpGEKD8DEUPDZx-QCS1dnUSOfkpPbb6_d8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jb25j/ZXB0by5kZS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8xMi9p/bWFnZW4tZTE2MDc5/OTE3ODE0ODUuanBn"
+                    minlength="15"
+                    maxlength="400"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="descripcion" class="form-label"
+                    >Descripción</label
+                  >
+                  <textarea
+                    id="descripcion"
+                    rows="3"
+                    class="form-control"
+                    minlength="5"
+                    maxlength="700"
+                    required
+                    placeholder="Este teléfono se trata de uno con gama media y excelentes características. Viene con una pantalla HD+ de 6.5 pulgadas y una cámara de 13MP + 2MP para capturar imágenes nítidas."
+                  ></textarea>
+                </div>
+                <div class="pb-3">
+                  <label for="stock" class="form-label"
+                    >Cantidad en stock</label
+                  >
+                  <input
+                    type="text"
+                    id="stock"
+                    class="form-control"
+                    required
+                    placeholder="50"
+                    maxlength="5"
+                  />
+                </div>
+                <button type="submit" class="btn btn-warning">Enviar</button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
     <footer class="bg-warning text-dark py-3 text-center">
-        <section class="container">
-            <article class="row">
-                <aside class="col-4">
-                    <a href="../index.html"><i class="fa-brands fa-buy-n-large display-6"></i></a>
-                </aside>
-                <aside class="col-4">
-                    <p>&copy; Todos los derechos reservados</p>
-                </aside>
-                <aside class="col-4">
-                    <p><a href="aboutUs.html">Acerca de nosotros</a></p>
-                </aside>
-            </article>
-        </section>
+      <section class="container">
+        <article class="row">
+          <aside class="col-4">
+            <a href="../index.html"
+              ><i class="fa-brands fa-buy-n-large display-6"></i
+            ></a>
+          </aside>
+          <aside class="col-4">
+            <p>&copy; Todos los derechos reservados</p>
+          </aside>
+          <aside class="col-4">
+            <p><a href="aboutUs.html">Acerca de nosotros</a></p>
+          </aside>
+        </article>
+      </section>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
-    <script src="https://kit.fontawesome.com/4be1b3b300.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4be1b3b300.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="../js/administrador.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/helperModalProducto.js"></script>
-</body>
+    <script src="../js/botonesHeader.js"></script>
+  </body>
 </html>
